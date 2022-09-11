@@ -7,7 +7,6 @@
     <div class="buttons">
       <button @click="stores.decreaseCount()">-</button>
       <button @click="stores.increaseCount()">+</button>
-      <button @click="stores.$reset()">reset</button>
     </div>
 
     <hr />
@@ -21,7 +20,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { useCounterStore } from "@/stores/counter";
 import { storeToRefs } from "pinia";
 

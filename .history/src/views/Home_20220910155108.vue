@@ -7,7 +7,6 @@
     <div class="buttons">
       <button @click="stores.decreaseCount()">-</button>
       <button @click="stores.increaseCount()">+</button>
-      <button @click="stores.$reset()">reset</button>
     </div>
 
     <hr />
@@ -15,13 +14,13 @@
     <hr />
     <div>
       <h3>Edit counter:</h3>
-      <input v-model="stores.count" type="number" />
+      <input v-model="store.count" type="number" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { useCounterStore } from "@/stores/counter";
 import { storeToRefs } from "pinia";
 

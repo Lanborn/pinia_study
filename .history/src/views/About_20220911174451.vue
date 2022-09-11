@@ -26,6 +26,7 @@ export default {
         count: stores.count + 1,
         name: "Abalam",
       });
+      return null;
     };
     const changeItem = () => {
       stores.$patch((state) => {

@@ -7,36 +7,24 @@
     </div>
     <div class="buttons">
       <button @click="stores.decreaseCount()">-</button>
-      <button @click="changeBtn">patchBtn</button>
+      <button @click="">patchBtn</button>
     </div>
-    <list-by-store :list="list" @changeList="changeItem"></list-by-store>
   </div>
 </template>
 
 <script>
 import { useCounterStore } from "@/stores/counter";
-import ListByStore from "@/components/ListByStore.vue";
 export default {
-  components: { ListByStore },
   setup() {
     const stores = useCounterStore();
-    const list = [2, 3, 4];
     const changeBtn = () => {
       stores.$patch({
         count: stores.count + 1,
         name: "Abalam",
       });
     };
-    const changeItem = () => {
-      stores.$patch((state) => {
-        state.list[0] = 11;
-      });
-    };
     return {
       stores,
-      list,
-      changeBtn,
-      changeItem,
     };
   },
   computed: {

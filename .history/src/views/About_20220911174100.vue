@@ -34,7 +34,7 @@ export default {
     };
     return {
       stores,
-      list,
+      list
       changeBtn,
       changeItem,
     };

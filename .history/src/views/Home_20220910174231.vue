@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { useCounterStore } from "@/stores/counter";
 import { storeToRefs } from "pinia";
 

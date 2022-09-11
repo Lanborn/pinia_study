@@ -8,8 +8,9 @@
     <div class="buttons">
       <button @click="stores.decreaseCount()">-</button>
       <button @click="changeBtn">patchBtn</button>
+      <button @click="$emits('changeList')">changeList</button>
     </div>
-    <list-by-store :list="list" @changeList="changeItem"></list-by-store>
+    <list-by-store @changeList="changeItem"></list-by-store>
   </div>
 </template>
 
@@ -20,7 +21,6 @@ export default {
   components: { ListByStore },
   setup() {
     const stores = useCounterStore();
-    const list = [2, 3, 4];
     const changeBtn = () => {
       stores.$patch({
         count: stores.count + 1,
@@ -34,7 +34,6 @@ export default {
     };
     return {
       stores,
-      list,
       changeBtn,
       changeItem,
     };
