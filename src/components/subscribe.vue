@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <ol v-for="(key, i) in counterStore.list" class="list">
-      <li class="item"></li>
-    </ol>
-  </div>
+  <div>{{ counterStore.count }}</div>
 </template>
 
 <script lang="ts">
@@ -13,14 +9,9 @@ import { useCounterStore } from "@/stores/counter";
 export default defineComponent({
   setup() {
     const counterStore = useCounterStore();
-    const changeArray1 = () => {
-      counterStore.$patch({
-        list: [2, 3, 4],
-      });
-    };
+
     return {
       counterStore,
-      changeArray1,
     };
   },
 });

@@ -24,14 +24,20 @@ export default {
     const changeBtn = () => {
       stores.$patch({
         count: stores.count + 1,
-        name: "Abalam",
       });
     };
-    const changeItem = () => {
-      stores.$patch((state) => {
-        state.list[0] = 11;
-      });
+    const changeItem = (payload) => {
+      if (payload[0] < 1) {
+        stores.$patch((state) => {
+          state.list[0] = 11;
+        });
+      } else {
+        stores.list = payload;
+      }
     };
+    stores.$onAction((args) => {
+      console.log(args);
+    }, true);
     return {
       stores,
       list,
